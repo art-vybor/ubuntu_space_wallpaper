@@ -1,7 +1,7 @@
 Ubuntu space wallpaper
 ======================
 
-Dynamic wallpaper for ubuntu which generate picture from earth satelite
+Dynamic wallpaper for ubuntu which generate fresh picture from earth satelite and update it automatically.
 
 Based on script of @avbop: https://gist.github.com/avbop/58a84da10b7c37f129a2
 
