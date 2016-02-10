@@ -1,0 +1,19 @@
+#!/bin/bash 
+
+FILE="'file://$(readlink -f "$1")'";
+
+# https://bugs.launchpad.net/ubuntu/+source/nautilus/+bug/1033034
+PID=$(pgrep gnome-session)
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|cut -d= -f2-)
+
+# gsettings set org.gnome.desktop.background secondary-color '#2c001e'
+# gsettings set org.gnome.desktop.background show-desktop-icons true
+# gsettings set org.gnome.desktop.background color-shading-type 'solid'
+gsettings set org.gnome.desktop.background draw-background true
+gsettings set org.gnome.desktop.background picture-options 'scaled'
+gsettings set org.gnome.desktop.background primary-color '#000000000000'
+gsettings set org.gnome.desktop.background picture-opacity 100
+
+gsettings set org.gnome.desktop.background picture-uri "$FILE"
+
+echo wallpaper changed to "$FILE"
